@@ -3,11 +3,39 @@ app.component('order-form', {
         cart: {
             type: Array,
             required: true
+        },
+        total: {
+            type: Number,
+            required: true
+        }
+    },
+    methods: {
+        hideOrderForm(){
+            this.$emit('hide-order-form');
+        },
+        onSubmit(){
+            let orderDetails = {
+                name: this.name,
+                phone: this.phone,
+                address: this.address,
+                total: this.total
+            };
+
+            console.log(orderDetails);
+            this.hideOrderForm();
+            this.$emit('clear-cart');
+        }
+    },
+    data() {
+        return {
+            name: '',
+            phone: '',
+            address: ''
         }
     },
     template: /*html*/
     `<div id="modal">
-        <div class="backdrop" @click="hideOrderForm"></div>
+        <div class="backdrop" @click="hideOrderForm()"></div>
         <div class="modalBody">
         <div class="formContainer" id="orderForm">
             <h1>Complete the form below and hit submit</h1>
@@ -47,6 +75,5 @@ app.component('order-form', {
             </form>
         </div>
         </div>
-    </div>`,
-    
+    </div>`
 });

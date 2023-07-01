@@ -37,7 +37,8 @@
                     <div class="builder">
                         <h3>
                             Build your cool Ice Cream
-                            <span class="quantity" :style="cart.length > 0 ? {} : {'color' : 'red'}">{{ cart.length }}</span>
+                            <span class="quantity" :style="cart.length > 0 ? {} : {'color' : 'red'}">{{ cart.length
+                                }}</span>
                         </h3>
                         <!-- items start -->
                         <div id="items">
@@ -65,13 +66,19 @@
                             <div> {{ cartTotal }} Tk</div>
                         </div>
                         <!-- total price end -->
-                        <button type="button" class="order rounded">
+                        <button type="button" @click="showOrderForm()" class="order rounded">
                             Proceed
                         </button>
                     </div>
 
                     <!-- modal start -->
-
+                    <order-form 
+                    :cart="cart" 
+                    :total="cartTotal" 
+                    @hide-order-form="showOrderForm" 
+                    @clear-cart="clearCart"
+                        v-if="showModal">
+                    </order-form>
                     <!-- modal end -->
                 </div>
                 <!-- builder end -->
@@ -97,6 +104,7 @@
     <script src="https://unpkg.com/vue@next"></script>
     <script src="./main.js"></script>
     <script src="./components/IceCream.js"></script>
+    <script src="./components/OrderFrom.js"></script>
     <script>
         const mountedapp = app.mount("#app");
     </script>
