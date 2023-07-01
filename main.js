@@ -20,5 +20,10 @@ const app = Vue.createApp({
             // To remove the item from the cart ...
             this.cart.splice(position, 1);
         }
+    },
+    computed: {
+        cartTotal(){
+            return this.cart.reduce((total, variant) => total + variant.price, 0);
+        }
     }
 });
