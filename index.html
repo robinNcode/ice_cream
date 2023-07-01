@@ -29,12 +29,7 @@
         <div class="mainBody" id="body">
             <div class="container" id="iceCreamBuilder">
                 <!-- icecream start -->
-                <div class="icecream" id="icecream">
-                    <p class="cone"></p>
-                    <div class="scoop" v-for="cartItem in cart" :class="cartItem.name.toLowerCase()"></div>
-                    <div class="cherry" v-if="cart.length > 0"></div>
-                    <div class="question" v-else></div>
-                </div>
+                <ice-cream :cart="cart"></ice-cream>
                 <!-- ice cream end -->
 
                 <!-- builder start -->
@@ -101,6 +96,7 @@
 
     <script src="https://unpkg.com/vue@next"></script>
     <script src="./main.js"></script>
+    <script src="./components/IceCream.js"></script>
     <script>
         const mountedapp = app.mount("#app");
     </script>
