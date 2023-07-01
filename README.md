@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <h3 align="center"><a href="https://github.com/learnwithsumit/ice-cream-vue">Introduction to Vue.js with a Project - Ice Cream Builder App</a></h3>
+  <h3 align="center"><a href="https://github.com/robinNcode/ice-cream">Introduction to Vue.js with a Project - Ice Cream Builder App</a></h3>
 
 <!-- TABLE OF CONTENTS -->
 
