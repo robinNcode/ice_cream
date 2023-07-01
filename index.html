@@ -29,7 +29,12 @@
         <div class="mainBody" id="body">
             <div class="container" id="iceCreamBuilder">
                 <!-- icecream start -->
-                <ice-cream :cart="cart"></ice-cream>
+                <div class="icecream" id="icecream">
+                    <p class="cone"></p>
+                    <div class="scoop" v-for="cartItem in cart" :class="cartItem.name.toLowerCase()"></div>
+                    <div class="cherry" v-if="cart.length > 0"></div>
+                    <div class="question" v-else></div>
+                </div>
                 <!-- ice cream end -->
 
                 <!-- builder start -->
@@ -44,7 +49,7 @@
                             <ul>
                                 <!-- item start -->
                                 <li class="item" :key="variant.id" v-for="variant in variants">
-                                    <span>{{ variant.name }}</span>
+                                    <span>{{ variant.name }}</span> (<span>{{ variant.price }} tk.</span>)
                                     <div class="right">
                                         <button type="button" class="plus rounded" @click="addToCart(variant.id)">
                                             +
@@ -71,7 +76,7 @@
                     </div>
 
                     <!-- modal start -->
-                    
+
                     <!-- modal end -->
                 </div>
                 <!-- builder end -->
